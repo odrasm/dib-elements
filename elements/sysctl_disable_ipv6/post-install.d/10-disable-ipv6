@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ ${DIB_DEBUG_TRACE:-0} -gt 1 ]]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+sysctl-set-value net.ipv6.conf.all.disable_ipv6 1
+sysctl-set-value net.ipv6.conf.default.disable_ipv6 1
+sysctl-set-value net.ipv6.conf.lo.disable_ipv6 1
+
+
+
